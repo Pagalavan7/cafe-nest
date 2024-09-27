@@ -1,19 +1,14 @@
 import { Body, Controller, Param, Post } from '@nestjs/common';
 import { UserService } from './user.service';
+import { SignupUserDTO } from './DTO/signupUser.dto';
 
 @Controller('user')
 export class UserController {
   constructor(private userService: UserService) {}
 
-  @Post('signup/:id')
-  signup(
-    @Body('name') body: any,
-    @Body('email') email: any,
-    @Param('id') params: any,
-  ) {
-    console.log(params);
-    console.log(body);
-    console.log(email);
-    return this.userService.signup();
+  @Post('signup')
+  signup(@Body() signupData: SignupUserDTO) {
+    console.log(typeof signupData);
+    return this.userService.signup(signupData);
   }
 }

@@ -15,9 +15,8 @@ import 'dotenv/config';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-
-      synchronize: true, // Set to false in production
-      logging: false, // Set to true to enable query logging
+      synchronize: false, // Set to false in production
+      logging: true,
       options: {
         enableArithAbort: true,
         encrypt: true, // Enable encryption
